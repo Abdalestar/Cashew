@@ -22,6 +22,7 @@ import 'package:budget/widgets/exportDB.dart';
 import 'package:budget/widgets/importCSV.dart';
 import 'package:budget/widgets/exportCSV.dart';
 import 'package:budget/pages/autoTransactionsPageEmail.dart';
+import 'package:budget/pages/autoTransactionsPageSMS.dart';
 import 'package:budget/pages/activityPage.dart';
 import 'package:budget/pages/editAssociatedTitlesPage.dart';
 import 'package:budget/pages/editBudgetPage.dart';
@@ -587,6 +588,17 @@ class SettingsPageContent extends StatelessWidget {
                 icon: appStateSettings["outlinedIcons"]
                     ? Icons.edit_notifications_outlined
                     : Icons.edit_notifications_rounded,
+              )
+            : SizedBox.shrink(),
+
+        getPlatform(ignoreEmulation: true) == PlatformOS.isAndroid
+            ? SettingsContainerOpenPage(
+                title: "SMS Auto Transactions",
+                description: "Automatically scan bank SMS messages and create transactions",
+                openPage: AutoTransactionsPageSMS(),
+                icon: appStateSettings["outlinedIcons"]
+                    ? Icons.sms_outlined
+                    : Icons.sms_rounded,
               )
             : SizedBox.shrink(),
 

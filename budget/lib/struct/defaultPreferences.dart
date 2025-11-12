@@ -127,6 +127,8 @@ Future<Map<String, dynamic>> getDefaultPreferences() async {
     "AutoTransactions-canReadEmails": false,
     "notificationScanningDebug": false,
     "notificationScanning": false,
+    "smsScanning": false,
+    "smsScanningDebug": false,
     "accountColorfulAmountsWithArrows": false,
     "netTotalsColorful": false,
     "EmailAutoTransactions-amountOfEmails": 10,

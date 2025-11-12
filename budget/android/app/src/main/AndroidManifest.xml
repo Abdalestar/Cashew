@@ -6,6 +6,8 @@
   <uses-permission android:name="com.android.vending.BILLING" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_SMS"/>
+  <uses-permission android:name="android.permission.RECEIVE_SMS"/>
   <queries>
     <!-- If your app opens https URLs -->
     <intent>
@@ -121,6 +123,13 @@
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/net_worth_widget" />
+        </receiver>
+        <receiver android:name=".SMSReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
         </receiver>
         <!-- <service android:name="im.zoe.labs.flutter_notification_listener.NotificationsHandlerService"
             android:label="Flutter Notifications Handler"
